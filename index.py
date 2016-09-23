@@ -12,7 +12,7 @@ def hello(name=None):
 
     with open('murderList.json') as lists:
         murder_list = json.load(lists)
-
+    victim = names.get_full_name()
     how = random.choice(murder_list["how"])
     why = random.choice(murder_list["why"])
     where = random.choice(murder_list["where"])
@@ -30,6 +30,7 @@ def hello(name=None):
         for c in range (i, 4):
             name_list.append("")
     return render_template('hello.html',
+    victm=victim
     how=how,
     why=why,
     where=where,
