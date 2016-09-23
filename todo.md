@@ -1,6 +1,6 @@
 #To do
 
-- [x ] translate to english
+- [x] translate to english
 - [ ] template
 - [ ] create suspects sheets
 - [ ] open google maps address
