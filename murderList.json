@@ -1,0 +1,46 @@
+{
+  "how": ["Envenenamento",
+          "Arma",
+          "Asfixia",
+          "Fogo",
+          "Afogamento",
+          "Atropelamento"],
+
+  "why": ["Dinheiro",
+          "Vingança",
+          "Inveja",
+          "Paixão",
+          "Erro",
+          "Demência",
+          "Queima de Arquivo",
+          "Imprudência",
+          "Desentendimento"],
+
+  "where": ["Interno",
+            "Externo"],
+
+  "when": ["Madrugada: Entre 00:00 e 05:59",
+          "Manhã: Entre às 06:00 e 11:59",
+          "Tarde: Entre o 12:00 e 17:59",
+          "Noite: Entre às 18:00 e 23:59"],
+
+  "who": ["Cônjuge/Parceiro",
+          "Amante",
+          "Pais",
+          "Filho(a)",
+          "Irmão/Irmã",
+          "Chefe",
+          "Sócio",
+          "Cliente",
+          "Colega",
+          "Empregado(a)",
+          "Vizinho(a)",
+          "Inimigo(a)",
+          "Amigo(a)",
+          "Conhecido(a)",
+          "Bandido",
+          "Acidente",
+          "Agressor",
+          "Psicopata"]
+
+}
