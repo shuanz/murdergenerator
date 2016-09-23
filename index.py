@@ -8,7 +8,7 @@ import names
 app = Flask(__name__)
 
 @app.route('/')
-def hello(name=None):
+def murdergen(name=None):
 
     with open('murderList.json') as lists:
         murder_list = json.load(lists)
