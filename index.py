@@ -30,7 +30,7 @@ def hello(name=None):
         for c in range (i, 4):
             name_list.append("")
     return render_template('hello.html',
-    victm=victim
+    victm=victim,
     how=how,
     why=why,
     where=where,
