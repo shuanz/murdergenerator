@@ -9,4 +9,5 @@
 - [ ] develop flowchart
 - [ ] create clue rules
 - [ ] create characters sheet
+- [ ] create conditional relations and jobs
 
