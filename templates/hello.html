@@ -1,21 +1,44 @@
 <!doctype html>
 <title>Murder Generator v0.0.1</title>
 <p><i>Aperte F5 (ou refresh) para gerar parâmetros</i></p>
-<p>Victim: {{ victim }}</p>
+
+<p>Victim: {{ victim }}, {{victimjob}}</p>
+<ul class="tab">
+  <li>height: {{ victim_height }}</li>
+  <li>weight: </li>
+  <li>skin tone: </li>
+  <li>eye color: </li>
+  <li>hair length: </li>
+  <li>hair color: </li>
+  <li>hair types: </li>
+  <li>face hair:  </li>
+  <li>clothigs: </li>
+</ul>
 <p>How? {{ how }}</p>
 <p>Why? {{ why }}</p>
 <p>Where? {{ where }}</p>
 <p>Address: {{ address }}</p>
 <p>When? {{ when }}</p>
-<p>Who? {{ whoa }}, {{ whob }}</p>
+<p>Who? {{ who_name }}, {{ who_relation }}, {{who_job}}</p>
+<ul class="tab">
+  <li>height: </li>
+  <li>weight: </li>
+  <li>skin tone: </li>
+  <li>eye color: </li>
+  <li>hair length: </li>
+  <li>hair color: </li>
+  <li>hair types: </li>
+  <li>face hair:  </li>
+  <li>clothigs: </li>
+</ul>
 </br>
 <p>Suspects</p>
-<p>{{suspecta}}</p>
-<p>{{suspectb}}</p>
-<p>{{suspectc}}</p>
-<p>{{suspectd}}</p>
-<p>{{suspecte}}</p>
-<p>{{suspectf}}</p>
-<p>{{suspectg}}</p>
+<p>{{suspecta_name}}, {{suspecta_relation}}, {{suspecta_job}}</p>
+<p>{{suspectb_name}}, {{suspectb_relation}}, {{suspectb_job}}</p>
+<p>{{suspectc_name}} {{suspectc_relation}} {{suspectc_job}}</p>
+<p>{{suspectd_name}} {{suspectd_relation}} {{suspectd_job}}</p>
+<p>{{suspecte_name}} {{suspecte_relation}} {{suspecte_job}}</p>
+<p>{{suspectf_name}} {{suspectf_relation}} {{suspectf_job}}</p>
+<p>{{suspectg_name}} {{suspectg_relation}} {{suspectg_job}}</p>
 
 <p><i>Murder Generator - v0.0.1</i></p>

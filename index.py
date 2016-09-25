@@ -3,49 +3,83 @@ from flask import render_template
 import random
 import json
 from generateAddress import GenerateAddres
-import names
+from jobs import GenerateJobs
+from nameGen import NameGen
+from victimGenerator import VictimGenerator
 
 app = Flask(__name__)
 
 @app.route('/')
 def murdergen(name=None):
 
-    with open('murderList.json') as lists:
-        murder_list = json.load(lists)
+    with open('murderList.json') as mlists:
+        murder_list = json.load(mlists)
 
-    victim = names.get_full_name()
+    name_gen = NameGen()
+    victim_generator = VictimGenerator()
+
+    victim, victimjob = victim_generator.generator()
+    victim_height = random.choice(murder_list["heights"])
     how = random.choice(murder_list["how"])
     why = random.choice(murder_list["why"])
     where = random.choice(murder_list["where"])
     address = GenerateAddres().generator()
     when = random.choice(murder_list["when"])
-    whoa = names.get_full_name()
-    whob = random.choice(murder_list["who"])
-    suspecta = names.get_full_name()
-    suspectb = names.get_full_name()
-    name_list = []
+    who_name = name_gen.generator()
+    who_relation = random.choice(murder_list["who"])
+    who_job = GenerateJobs().generator()
+    suspecta_name = name_gen.generator()
+    suspecta_relation = random.choice(murder_list["who"])
+    suspecta_job = GenerateJobs().generator()
+    suspectb_name = name_gen.generator()
+    suspectb_relation = random.choice(murder_list["who"])
+    suspectb_job = GenerateJobs().generator()
+    suspect_name_list = []
+    suspect_relation_list = []
+    suspect_job_list = []
     list_size = random.randint(1,4)
     for i in range (0, list_size):
-        name_list.append(names.get_full_name())
+        suspect_name_list.append(name_gen.generator())
+        suspect_relation_list.append(random.choice(murder_list["who"]))
+        suspect_job_list.append(GenerateJobs().generator())
     if i < 4:
         for c in range (i, 4):
-            name_list.append("")
+            suspect_name_list.append("")
+            suspect_relation_list.append("")
+            suspect_job_list.append("")
     return render_template('hello.html',
     victim=victim,
+    victimjob=victimjob,
+    victim_height = victim_height,
     how=how,
     why=why,
     where=where,
     address=address,
     when=when,
-    whoa=whoa,
-    whob=whob,
-    suspecta=suspecta,
-    suspectb=suspectb,
-    suspectc=name_list[0],
-    suspectd=name_list[1],
-    suspecte=name_list[2],
-    suspectf=name_list[3],
-    suspectg=name_list[4]
+    who_name=who_name,
+    who_relation=who_relation,
+    who_job=who_job,
+    suspecta_name=suspecta_name,
+    suspecta_relation=suspecta_relation,
+    suspecta_job=suspecta_job,
+    suspectb_name=suspectb_name,
+    suspectb_relation=suspectb_relation,
+    suspectb_job=suspectb_job,
+    suspectc_name=suspect_name_list[0],
+    suspectc_relation=suspect_relation_list[0],
+    suspectc_job=suspect_job_list[0],
+    suspectd_name=suspect_name_list[1],
+    suspectd_relation=suspect_relation_list[1],
+    suspectd_job=suspect_job_list[1],
+    suspecte_name=suspect_name_list[2],
+    suspecte_relation=suspect_relation_list[2],
+    suspecte_job=suspect_job_list[2],
+    suspectf_name=suspect_name_list[3],
+    suspectf_relation=suspect_relation_list[3],
+    suspectf_job=suspect_job_list[3],
+    suspectg_name=suspect_name_list[4],
+    suspectg_relation=suspect_relation_list[4],
+    suspectg_job=suspect_job_list[4]
     )
 
 if __name__ == "__main__":

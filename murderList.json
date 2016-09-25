@@ -2,7 +2,7 @@
   "how": ["Handguns",
           "Knives or cutting instruments",
           "Blunt objects (clubs, hammers, etc.)",
-        "  Personal weapons (hands, fists, feet, etc.)",
+          "Personal weapons (hands, fists, feet, etc.)",
           "Poison",
           "Explosives",
           "Fire",
@@ -44,7 +44,6 @@
           "Daughter/Son",
           "Brother/Sister",
           "Boss",
-          "Partner",
           "Coworker",
           "Client",
           "Classmate",
@@ -54,6 +53,12 @@
           "Friend",
           "Bandit",
           "Aggressor",
-          "Psycho"]
+          "Psycho"],
 
+  "_comment": "Font: http://klh.karinoyo.com/generate/character/",
+    "heights": ["very tall",
+                "a little taller than average",
+                "of average height",
+                "a little shorter than average",
+                "very short"]
 }

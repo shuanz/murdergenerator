@@ -2,12 +2,12 @@ class GenerateAddres:
 
     def generator(self):
         from geopy.geocoders import Nominatim
-        import random
+        from cordinates import GenerateCordinates
 
         geolocator = Nominatim()
+        cordinates = GenerateCordinates()
 
-        lon =  "40.%s" % str((random.randint(498863, 914234)))
-        lat =  "-73.%s" % str((random.randint(263688, 940643)))
+        lon, lat = cordinates.generator()
 
         location = geolocator.reverse("%s, %s" % (lon, lat))
         return (location.address)
