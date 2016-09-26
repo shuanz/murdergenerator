@@ -18,8 +18,19 @@ def murdergen(name=None):
     name_gen = NameGen()
     victim_generator = VictimGenerator()
 
-    victim, victimjob = victim_generator.generator()
-    victim_height = random.choice(murder_list["heights"])
+    victim = victim_generator.generator()
+
+    for i in victim:
+        victim_name = victim[0]
+        victimjob = victim[1]
+        victim_height = victim[2]
+        victim_weight = victim[3]
+        victim_tone = victim[4]
+        victim_eyecolors = victim[5]
+        victim_hairlengths = victim[6]
+        victim_haircolors = victim[7]
+
+
     how = random.choice(murder_list["how"])
     why = random.choice(murder_list["why"])
     where = random.choice(murder_list["where"])
@@ -48,9 +59,14 @@ def murdergen(name=None):
             suspect_relation_list.append("")
             suspect_job_list.append("")
     return render_template('hello.html',
-    victim=victim,
+    victim_name=victim_name,
     victimjob=victimjob,
     victim_height = victim_height,
+    victim_weight=victim_weight,
+    victim_tone=victim_tone,
+    victim_eyecolors=victim_eyecolors,
+    victim_hairlengths=victim_hairlengths,
+    victim_haircolors=victim_haircolors,
     how=how,
     why=why,
     where=where,

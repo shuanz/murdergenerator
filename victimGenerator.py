@@ -1,11 +1,9 @@
 class VictimGenerator:
 
     def generator(self):
-        from nameGen import NameGen
         from importMuderList import importMurderList
         from nameGen import NameGen
         from jobs import GenerateJobs
-        import random
 
         murder_list = importMurderList()
         name_gen = NameGen()
@@ -13,6 +11,12 @@ class VictimGenerator:
 
         name = name_gen.generator()
         job = job_gen.generator()
-        #height = random.choice(murder_list["heights"])
+        height = murder_list.generate("heights")
+        weight = murder_list.generate("weights")
+        tone = murder_list.generate("tones")
+        eyecolors = murder_list.generate("eyecolors")
+        hairlengths = murder_list.generate("hairlengths")
+        haircolors = murder_list.generate("haircolors")
 
-        return name, job
+        return [name, job, height, weight, tone, eyecolors,
+                hairlengths, haircolors]
