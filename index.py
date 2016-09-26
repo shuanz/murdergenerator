@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def murdergen(name=None):
+<<<<<<< HEAD
 
     with open('murderList.json') as mlists:
         murder_list = json.load(mlists)
@@ -29,6 +30,8 @@ def murdergen(name=None):
         victim_eyecolors = victim[5]
         victim_hairlengths = victim[6]
         victim_haircolors = victim[7]
+=======
+>>>>>>> 4fd7d2f3c9e74533d87762d6de8da30c639fcde2
 
 
     how = random.choice(murder_list["how"])
