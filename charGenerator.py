@@ -1,9 +1,10 @@
+from importMuderList import importMurderList
+from nameGen import NameGen
+from jobs import GenerateJobs
+
 class CharGenerator:
 
     def generator(self):
-        from importMuderList import importMurderList
-        from nameGen import NameGen
-        from jobs import GenerateJobs
 
         murder_list = importMurderList()
         name_gen = NameGen()

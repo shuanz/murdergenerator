@@ -1,9 +1,9 @@
+import random
+from faker import Faker
+
 class NameGen:
 
     def generator(self):
-
-        import random
-        from faker import Faker
 
         fake = Faker()
 

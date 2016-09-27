@@ -1,7 +1,8 @@
+from faker import Faker
+
 class GenerateJobs:
 
     def generator(self):
-        from faker import Faker
 
         fake = Faker()
 

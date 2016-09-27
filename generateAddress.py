@@ -1,8 +1,9 @@
+from geopy.geocoders import Nominatim
+from cordinates import GenerateCordinates
+
 class GenerateAddres:
 
     def generator(self):
-        from geopy.geocoders import Nominatim
-        from cordinates import GenerateCordinates
 
         geolocator = Nominatim()
         cordinates = GenerateCordinates()

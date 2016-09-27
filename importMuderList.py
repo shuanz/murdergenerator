@@ -1,8 +1,9 @@
+import json
+import random
+
 class importMurderList:
 
     def generate(self, json_item):
-        import json
-        import random
 
         with open('murderList.json') as mlists:
             murder_list = json.load(mlists)
