@@ -5,7 +5,7 @@ import json
 from generateAddress import GenerateAddres
 from jobs import GenerateJobs
 from nameGen import NameGen
-from victimGenerator import VictimGenerator
+from charGenerator import CharGenerator
 
 app = Flask(__name__)
 
@@ -16,28 +16,46 @@ def murdergen(name=None):
         murder_list = json.load(mlists)
 
     name_gen = NameGen()
-    victim_generator = VictimGenerator()
+    character_generator = CharGenerator()
 
-    victim = victim_generator.generator()
+    victim = character_generator.generator()
+    guilty = character_generator.generator()
 
     for i in victim:
         victim_name = victim[0]
-        victimjob = victim[1]
+        victim_job = victim[1]
         victim_height = victim[2]
         victim_weight = victim[3]
         victim_tone = victim[4]
         victim_eyecolors = victim[5]
         victim_hairlengths = victim[6]
         victim_haircolors = victim[7]
+        victim_hairtypes = victim[8]
+        victim_facehairs = victim[9]
+        victim_clothings = victim[10]
+
+    for i in guilty:
+        guilty_name = guilty[0]
+        guilty_job = guilty[1]
+        guilty_height = guilty[2]
+        guilty_weight = guilty[3]
+        guilty_tone = guilty[4]
+        guilty_eyecolors = guilty[5]
+        guilty_hairlengths = guilty[6]
+        guilty_haircolors = guilty[7]
+        guilty_hairtypes = guilty[8]
+        guilty_facehairs = guilty[9]
+        guilty_clothings = guilty[10]
+        guilty_victim_relationship = guilty[11]
 
     how = random.choice(murder_list["how"])
     why = random.choice(murder_list["why"])
     where = random.choice(murder_list["where"])
     address = GenerateAddres().generator()
     when = random.choice(murder_list["when"])
-    who_name = name_gen.generator()
+
     who_relation = random.choice(murder_list["who"])
-    who_job = GenerateJobs().generator()
+
     suspecta_name = name_gen.generator()
     suspecta_relation = random.choice(murder_list["who"])
     suspecta_job = GenerateJobs().generator()
@@ -48,6 +66,7 @@ def murdergen(name=None):
     suspect_relation_list = []
     suspect_job_list = []
     list_size = random.randint(1,4)
+
     for i in range (0, list_size):
         suspect_name_list.append(name_gen.generator())
         suspect_relation_list.append(random.choice(murder_list["who"]))
@@ -59,21 +78,34 @@ def murdergen(name=None):
             suspect_job_list.append("")
     return render_template('hello.html',
     victim_name=victim_name,
-    victimjob=victimjob,
+    victim_job=victim_job,
     victim_height = victim_height,
     victim_weight=victim_weight,
     victim_tone=victim_tone,
     victim_eyecolors=victim_eyecolors,
     victim_hairlengths=victim_hairlengths,
     victim_haircolors=victim_haircolors,
+    victim_hairtypes=victim_hairtypes,
+    victim_facehairs=victim_facehairs,
+    victim_clothings=victim_clothings,
     how=how,
     why=why,
     where=where,
     address=address,
     when=when,
-    who_name=who_name,
     who_relation=who_relation,
-    who_job=who_job,
+    guilty_name = guilty_name,
+    guilty_job = guilty_job,
+    guilty_victim_relationship=guilty_victim_relationship,
+    guilty_height = guilty_height,
+    guilty_weight = guilty_weight,
+    guilty_tone = guilty_tone,
+    guilty_eyecolors = guilty_eyecolors,
+    guilty_hairlengths = guilty_hairlengths,
+    guilty_haircolors = guilty_haircolors,
+    guilty_hairtypes = guilty_hairtypes,
+    guilty_facehairs = guilty_facehairs,
+    guilty_clothings = guilty_clothings,
     suspecta_name=suspecta_name,
     suspecta_relation=suspecta_relation,
     suspecta_job=suspecta_job,

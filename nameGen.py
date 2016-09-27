@@ -16,4 +16,4 @@ class NameGen:
         else:
             name = fake.name_female()
 
-        return name
+        return name, gender

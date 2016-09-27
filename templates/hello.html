@@ -1,8 +1,8 @@
 <!doctype html>
-<title>Murder Generator v0.0.1</title>
-<p><i>Aperte F5 (ou refresh) para gerar parâmetros</i></p>
+<title>Murder Generator v0.0.2</title>
+<p><i>Press F5 (or refresh) to generate parameters</i></p>
 
-<p>Victim: {{ victim_name }}, {{victimjob}}</p>
+<p>Victim: {{ victim_name }}, {{victim_job}}</p>
 <ul class="tab">
   <li>height: {{ victim_height }}</li>
   <li>weight: {{victim_weight}}</li>
@@ -10,26 +10,26 @@
   <li>eye color: {{victim_eyecolors}} </li>
   <li>hair length: {{victim_hairlengths}}</li>
   <li>hair color: {{victim_haircolors}}</li>
-  <li>hair types: </li>
-  <li>face hair:  </li>
-  <li>clothigs: </li>
+  <li>hair types: {{victim_hairtypes}}</li>
+  <li>face hair: {{victim_facehairs}} </li>
+  <li>clothigs: {{victim_clothings}}</li>
 </ul>
 <p>How? {{ how }}</p>
 <p>Why? {{ why }}</p>
 <p>Where? {{ where }}</p>
-<p>Address: {{ address }}</p>
+<p>Body was found at {{ address }}</p>
 <p>When? {{ when }}</p>
-<p>Who? {{ who_name }}, {{ who_relation }}, {{who_job}}</p>
+<p>Who (Guilty)? {{ guilty_name }}, {{ guilty_victim_relationship }}, {{guilty_job}}</p>
 <ul class="tab">
-  <li>height: </li>
-  <li>weight: </li>
-  <li>skin tone: </li>
-  <li>eye color: </li>
-  <li>hair length: </li>
-  <li>hair color: </li>
-  <li>hair types: </li>
-  <li>face hair:  </li>
-  <li>clothigs: </li>
+  <li>height: {{guilty_height}}</li>
+  <li>weight: {{guilty_weight}}</li>
+  <li>skin tone: {{guilty_tone}}</li>
+  <li>eye color: {{guilty_eyecolors}}</li>
+  <li>hair length: {{guilty_hairlengths}}</li>
+  <li>hair color: {{guilty_haircolors}}</li>
+  <li>hair types: {{guilty_hairtypes}}</li>
+  <li>face hair:  {{guilty_facehairs}}</li>
+  <li>clothigs: {{guilty_clothings}}</li>
 </ul>
 </br>
 <p>Suspects</p>
@@ -41,4 +41,4 @@
 <p>{{suspectf_name}} {{suspectf_relation}} {{suspectf_job}}</p>
 <p>{{suspectg_name}} {{suspectg_relation}} {{suspectg_job}}</p>
 
-<p><i>Murder Generator - v0.0.1</i></p>
+<p><i>Murder Generator - v0.0.2</i></p>
