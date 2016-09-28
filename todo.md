@@ -1,9 +1,9 @@
 #To do
 
 - [x] translate to english
-- [ ] template
+- [x] template
 - [ ] create suspects sheets
-- [ ] open google maps address
+- [ ] open google maps address (error)
 - [ ] create database and seeds
 - [ ] create descriptions
 - [ ] develop flowchart
