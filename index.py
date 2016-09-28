@@ -6,8 +6,10 @@ from generateAddress import GenerateAddres
 from jobs import GenerateJobs
 from nameGen import NameGen
 from charGenerator import CharGenerator
+from flask_googlemaps import GoogleMaps
 
 app = Flask(__name__)
+GoogleMaps(app)
 
 @app.route('/')
 def murdergen(name=None):
@@ -51,7 +53,7 @@ def murdergen(name=None):
     how = random.choice(murder_list["how"])
     why = random.choice(murder_list["why"])
     where = random.choice(murder_list["where"])
-    address = GenerateAddres().generator()
+    address, lat, lon = GenerateAddres().generator()
     when = random.choice(murder_list["when"])
 
     who_relation = random.choice(murder_list["who"])
@@ -73,10 +75,10 @@ def murdergen(name=None):
         suspect_job_list.append(GenerateJobs().generator())
     if i < 4:
         for c in range (i, 4):
-            suspect_name_list.append("")
+            suspect_name_list.append(["",""])
             suspect_relation_list.append("")
             suspect_job_list.append("")
-    return render_template('hello.html',
+    return render_template('index.html',
     victim_name=victim_name,
     victim_job=victim_job,
     victim_height = victim_height,
@@ -92,6 +94,8 @@ def murdergen(name=None):
     why=why,
     where=where,
     address=address,
+    lat=lat,
+    lon=lon,
     when=when,
     who_relation=who_relation,
     guilty_name = guilty_name,
@@ -106,25 +110,25 @@ def murdergen(name=None):
     guilty_hairtypes = guilty_hairtypes,
     guilty_facehairs = guilty_facehairs,
     guilty_clothings = guilty_clothings,
-    suspecta_name=suspecta_name,
+    suspecta_name=suspecta_name[0],
     suspecta_relation=suspecta_relation,
     suspecta_job=suspecta_job,
-    suspectb_name=suspectb_name,
+    suspectb_name=suspectb_name[0],
     suspectb_relation=suspectb_relation,
     suspectb_job=suspectb_job,
-    suspectc_name=suspect_name_list[0],
+    suspectc_name=suspect_name_list[0][0],
     suspectc_relation=suspect_relation_list[0],
     suspectc_job=suspect_job_list[0],
-    suspectd_name=suspect_name_list[1],
+    suspectd_name=suspect_name_list[1][0],
     suspectd_relation=suspect_relation_list[1],
     suspectd_job=suspect_job_list[1],
-    suspecte_name=suspect_name_list[2],
+    suspecte_name=suspect_name_list[2][0],
     suspecte_relation=suspect_relation_list[2],
     suspecte_job=suspect_job_list[2],
-    suspectf_name=suspect_name_list[3],
+    suspectf_name=suspect_name_list[3][0],
     suspectf_relation=suspect_relation_list[3],
     suspectf_job=suspect_job_list[3],
-    suspectg_name=suspect_name_list[4],
+    suspectg_name=suspect_name_list[4][0],
     suspectg_relation=suspect_relation_list[4],
     suspectg_job=suspect_job_list[4]
     )

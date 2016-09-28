@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Murder Generator v. 0.0.3</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/scrolling-nav.css" rel="stylesheet">
+
+    <style type="text/css">
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand page-scroll" href="#page-top">Murder Generator</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  <li class="hidden">
+                      <a class="page-scroll" href="#page-top"></a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#page-top">The Case</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#about">Victim</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#services">Guilty</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#contact">Suspects</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <!-- Victim Section -->
+  <section id="intro" class="intro-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1>The Case</h1>
+                  <p><strong>Victim: </strong>{{ victim_name }}</p>
+                  <p><strong>Guilty: </strong>{{ guilty_name }}</p>
+                  <p><strong>How: </strong>{{ how }}</p>
+                  <p><strong>Why: </strong>{{ why }}</p>
+                  <p><strong>When: </strong>{{ when }}</p>
+                  <p><strong>Where: </strong>{{ address }}</p>
+                  <div align="center">
+                    {% with %}
+
+                      {% set location=(lon,lat) %}
+                      {% set style="width:500px;height:150px;"%}
+
+                      {{
+                      googlemap(
+                          "simple-map",
+                          location.0, location.1,
+                          markers=[location,],
+                          style=style
+                          )
+                      }}
+
+                    {% endwith %}
+                </div>
+                  <br>
+                  <a class="btn btn-default page-scroll" onClick="window.location.reload()">Create murder case</a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                <h1>Victim</h1>
+                <p><strong>Name: </strong>{{ victim_name }}</p>
+                <p><strong>Profession: </strong>{{ victim_job }}</p>
+                <p><strong>Height: </strong>{{ victim_height }}</p>
+                <p><strong>Weight: </strong>{{ victim_weight }}</p>
+                <p><strong>Skin Tone: </strong>{{ victim_tone }}</p>
+                <p><strong>Eye Color: </strong>{{ victim_eyecolors }}</p>
+                <p><strong>Hair Length: </strong>{{ victim_hairlengths }}</p>
+                <p><strong>Hair Color: </strong>{{ victim_haircolors }}</p>
+                <p><strong>Hair Types: </strong>{{ victim_hairtypes }}</p>
+                <p><strong>Face Hair: </strong>{{ victim_facehairs }}</p>
+                <p><strong>Clothings: </strong>{{ victim_clothings }}</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                <h1>Guilty</h1>
+                <p><strong>Name: </strong>{{ guilty_name }}</p>
+                <p><strong>Profession: </strong>{{ guilty_job }}</p>
+                <p><strong>Relation with the victim: </strong>{{ guilty_victim_relationship }}</p>
+                <p><strong>Height: </strong>{{ guilty_height }}</p>
+                <p><strong>Weight: </strong>{{ guilty_weight }}</p>
+                <p><strong>Skin Tone: </strong>{{ guilty_tone }}</p>
+                <p><strong>Eye Color: </strong>{{ guilty_eyecolors }}</p>
+                <p><strong>Hair Length: </strong>{{ guilty_hairlengths }}</p>
+                <p><strong>Hair Color: </strong>{{ guilty_haircolors }}</p>
+                <p><strong>Hair Types: </strong>{{ guilty_hairtypes }}</p>
+                <p><strong>Face Hair: </strong>{{ guilty_facehairs }}</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1>Suspects</h1>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Profession</th>
+                        <th>Relation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr align="left">
+                        <td>{{suspecta_name}}</td>
+                        <td>{{suspecta_job}}</td>
+                        <td>{{suspecta_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspectb_name}}</td>
+                        <td>{{suspectb_job}}</td>
+                        <td>{{suspectb_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspectc_name}}</td>
+                        <td>{{suspectc_job}}</td>
+                        <td>{{suspectc_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspectd_name}}</td>
+                        <td>{{suspectd_job}}</td>
+                        <td>{{suspectd_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspecte_name}}</td>
+                        <td>{{suspecte_job}}</td>
+                        <td>{{suspecte_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspectf_name}}</td>
+                        <td>{{suspectf_job}}</td>
+                        <td>{{suspectf_relation}}</td>
+                      </tr>
+                      <tr align="left">
+                        <td>{{suspectg_name}}</td>
+                        <td>{{suspectg_job}}</td>
+                        <td>{{suspectg_relation}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- jQuery -->
+  <script src="/static/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="/static/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="/static/js/jquery.easing.min.js"></script>
+  <script src="/static/js/scrolling-nav.js"></script>
+
+  <div id="footer" class="navbar-fixed-bottom">
+    <div class="container">
+      <p class="muted credit" align="center">Murder Generator v. 0.0.3
+        <br>
+        Developed by <a href="mailto:shuanz@gmail.com">Shuanz</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

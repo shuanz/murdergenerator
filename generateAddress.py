@@ -11,4 +11,4 @@ class GenerateAddres:
         lon, lat = cordinates.generator()
 
         location = geolocator.reverse("%s, %s" % (lon, lat))
-        return (location.address)
+        return (location.address, lat, lon)
