@@ -90,23 +90,6 @@
                   <p><strong>Why: </strong>{{ why }}</p>
                   <p><strong>When: </strong>{{ when }}</p>
                   <p><strong>Where: </strong>{{ address }}</p>
-                  <div align="center">
-                    {% with %}
-
-                      {% set location=(lon,lat) %}
-                      {% set style="width:500px;height:150px;"%}
-
-                      {{
-                      googlemap(
-                          "simple-map",
-                          location.0, location.1,
-                          markers=[location,],
-                          style=style
-                          )
-                      }}
-
-                    {% endwith %}
-                </div>
                   <br>
                   <a class="btn btn-default page-scroll" onClick="window.location.reload()">Create murder case</a>
               </div>
