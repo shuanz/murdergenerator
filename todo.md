@@ -12,3 +12,5 @@
 - [ ] create conditional relations and jobs
 - [ ] develop responsive layout
 - [ ] correct GeocoderTimedOut: Service timed out error (reference: http://stackoverflow.com/questions/30218394/timeout-error-in-python-geopy-geocoder)
+- [ ] create lists or dictionaries to configure json to transport data from backend to frontend
+- [ ] create export or download case
