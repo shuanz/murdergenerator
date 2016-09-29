@@ -11,4 +11,4 @@
 - [ ] create characters sheet
 - [ ] create conditional relations and jobs
 - [ ] develop responsive layout
-
+- [ ] correct GeocoderTimedOut: Service timed out error (reference: http://stackoverflow.com/questions/30218394/timeout-error-in-python-geopy-geocoder)
