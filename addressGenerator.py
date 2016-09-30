@@ -1,12 +1,12 @@
 from geopy.geocoders import Nominatim
-from cordinates import GenerateCordinates
+from cordinatesGenerator import CordinatesGenerator
 
-class GenerateAddres:
+class AddressGenerator:
 
     def generator(self):
 
         geolocator = Nominatim()
-        cordinates = GenerateCordinates()
+        cordinates = CordinatesGenerator()
 
         lon, lat = cordinates.generator()
 

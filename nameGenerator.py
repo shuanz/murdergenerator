@@ -1,7 +1,7 @@
 import random
 from faker import Faker
 
-class NameGen:
+class NameGenerator:
 
     def generator(self):
 

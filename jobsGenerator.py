@@ -1,6 +1,6 @@
 from faker import Faker
 
-class GenerateJobs:
+class JobsGenerator:
 
     def generator(self):
 

@@ -1,6 +1,6 @@
 import random
 
-class GenerateCordinates:
+class CordinatesGenerator:
 
     lon = 0
     lat = 0

@@ -21,7 +21,7 @@
       /* Set the fixed height of the footer here */
       #push,
       #footer {
-        height: 60px;
+        height: 30px;
       }
       #footer {
         background-color: #f5f5f5;
@@ -79,18 +79,18 @@
       <!-- /.container -->
   </nav>
 
-  <!-- Victim Section -->
+  <!-- Case Section -->
   <section id="intro" class="intro-section">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
                   <h1>The Case</h1>
-                  <p><strong>Victim: </strong>{{ victim_name }}</p>
-                  <p><strong>Guilty: </strong>{{ guilty_name }}</p>
-                  <p><strong>How: </strong>{{ how }}</p>
-                  <p><strong>Why: </strong>{{ why }}</p>
-                  <p><strong>When: </strong>{{ when }}</p>
-                  <p><strong>Where: </strong>{{ address }}</p>
+                  <p><strong>Victim: </strong>{{ victim["name"] }}</p>
+                  <p><strong>Guilty: </strong>{{ guilty["name"] }}</p>
+                  <p><strong>How: </strong>{{ case['how'] }}</p>
+                  <p><strong>Why: </strong>{{ case['why']  }}</p>
+                  <p><strong>When: </strong>{{ case['when'] }}</p>
+                  <p><strong>Where: </strong>{{ case['address'] }}</p>
                   <br>
                   <a class="btn btn-default page-scroll" onClick="window.location.reload()">Create murder case</a>
               </div>
@@ -98,52 +98,52 @@
       </div>
   </section>
 
-  <!-- About Section -->
+  <!-- Victim Section -->
   <section id="about" class="about-section">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
                 <h1>Victim</h1>
-                <p><strong>Name: </strong>{{ victim_name }}</p>
-                <p><strong>Profession: </strong>{{ victim_job }}</p>
-                <p><strong>Height: </strong>{{ victim_height }}</p>
-                <p><strong>Weight: </strong>{{ victim_weight }}</p>
-                <p><strong>Skin Tone: </strong>{{ victim_tone }}</p>
-                <p><strong>Eye Color: </strong>{{ victim_eyecolors }}</p>
-                <p><strong>Hair Length: </strong>{{ victim_hairlengths }}</p>
-                <p><strong>Hair Color: </strong>{{ victim_haircolors }}</p>
-                <p><strong>Hair Types: </strong>{{ victim_hairtypes }}</p>
-                <p><strong>Face Hair: </strong>{{ victim_facehairs }}</p>
-                <p><strong>Clothings: </strong>{{ victim_clothings }}</p>
+                <p><strong>Name: </strong>{{ victim["name"] }}</p>
+                <p><strong>Profession: </strong>{{ victim['job'] }}</p>
+                <p><strong>Height: </strong>{{ victim['height'] }}</p>
+                <p><strong>Weight: </strong>{{ victim['weight'] }}</p>
+                <p><strong>Skin Tone: </strong>{{ victim['tone'] }}</p>
+                <p><strong>Eye Color: </strong>{{ victim['eyecolors'] }}</p>
+                <p><strong>Hair Length: </strong>{{ victim['hairlengths'] }}</p>
+                <p><strong>Hair Color: </strong>{{ victim['haircolors'] }}</p>
+                <p><strong>Hair Types: </strong>{{ victim['hairtypes'] }}</p>
+                <p><strong>Face Hair: </strong>{{ victim['facehairs'] }}</p>
+                <p><strong>Clothings: </strong>{{ victim['clothings'] }}</p>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Guilty Section -->
   <section id="services" class="services-section">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
                 <h1>Guilty</h1>
-                <p><strong>Name: </strong>{{ guilty_name }}</p>
-                <p><strong>Profession: </strong>{{ guilty_job }}</p>
-                <p><strong>Relation with the victim: </strong>{{ guilty_victim_relationship }}</p>
-                <p><strong>Height: </strong>{{ guilty_height }}</p>
-                <p><strong>Weight: </strong>{{ guilty_weight }}</p>
-                <p><strong>Skin Tone: </strong>{{ guilty_tone }}</p>
-                <p><strong>Eye Color: </strong>{{ guilty_eyecolors }}</p>
-                <p><strong>Hair Length: </strong>{{ guilty_hairlengths }}</p>
-                <p><strong>Hair Color: </strong>{{ guilty_haircolors }}</p>
-                <p><strong>Hair Types: </strong>{{ guilty_hairtypes }}</p>
-                <p><strong>Face Hair: </strong>{{ guilty_facehairs }}</p>
-                <p><strong>Clothings: </strong>{{ guilty_clothings }}</p>
+                <p><strong>Name: </strong>{{ guilty["name"] }}</p>
+                <p><strong>Profession: </strong>{{ guilty["job"] }}</p>
+                <p><strong>Relation with the victim: </strong>{{ guilty["relation"] }}</p>
+                <p><strong>Height: </strong>{{ guilty['height'] }}</p>
+                <p><strong>Weight: </strong>{{ guilty['weight'] }}</p>
+                <p><strong>Skin Tone: </strong>{{ guilty['tone'] }}</p>
+                <p><strong>Eye Color: </strong>{{ guilty['eyecolors'] }}</p>
+                <p><strong>Hair Length: </strong>{{ guilty['hairlengths'] }}</p>
+                <p><strong>Hair Color: </strong>{{ guilty['haircolors'] }}</p>
+                <p><strong>Hair Types: </strong>{{ guilty['hairtypes'] }}</p>
+                <p><strong>Face Hair: </strong>{{ guilty['facehairs'] }}</p>
+                <p><strong>Clothings: </strong>{{ guilty['clothings'] }}</p>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Suspect Section -->
   <section id="contact" class="contact-section">
       <div class="container">
           <div class="row">
@@ -155,43 +155,117 @@
                         <th>Name</th>
                         <th>Profession</th>
                         <th>Relation</th>
+                        <!--
+                        <th>Height</h>
+                        <th>Weight</h>
+                        <th>Skin Tone</h>
+                        <th>Eye Colors</h>
+                        <th>Hair Lengths</h>
+                        <th>Hair Colors</h>
+                        <th>Hair Types</h>
+                        <th>Clothings</h>
+                        <th>Face Hair</h>
+                        !-->
                       </tr>
                     </thead>
                     <tbody>
                       <tr align="left">
-                        <td>{{suspecta_name}}</td>
-                        <td>{{suspecta_job}}</td>
-                        <td>{{suspecta_victim_relationship}}</td>
+                        <td>{{suspecta["name"]}}</td>
+                        <td>{{suspecta["job"]}}</td>
+                        <td>{{suspecta["relation"]}}</td><!--
+                        <td>{{suspecta["height"]}}</td>
+                        <td>{{suspecta["weight"]}}</td>
+                        <td>{{suspecta["tone"]}}</td>
+                        <td>{{suspecta["eyecolors"]}}</td>
+                        <td>{{suspecta["hairlengths"]}}</td>
+                        <td>{{suspecta["haircolors"]}}</td>
+                        <td>{{suspecta["hairtypes"]}}</td>
+                        <td>{{suspecta["clothings"]}}</td>
+                        <td>{{suspecta["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspectb_name}}</td>
-                        <td>{{suspectb_job}}</td>
-                        <td>{{suspectb_victim_relationship}}</td>
+                        <td>{{suspectb["name"]}}</td>
+                        <td>{{suspectb["job"]}}</td>
+                        <td>{{suspectb["relation"]}}</td><!--
+                        <td>{{suspectb["height"]}}</td>
+                        <td>{{suspectb["weight"]}}</td>
+                        <td>{{suspectb["tone"]}}</td>
+                        <td>{{suspectb["eyecolors"]}}</td>
+                        <td>{{suspectb["hairlengths"]}}</td>
+                        <td>{{suspectb["haircolors"]}}</td>
+                        <td>{{suspectb["hairtypes"]}}</td>
+                        <td>{{suspectb["clothings"]}}</td>
+                        <td>{{suspectb["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspect_name_list[0][0]}}</td>
-                        <td>{{suspect_relation_list[0]}}</td>
-                        <td>{{suspect_job_list[0]}}</td>
+                        <td>{{suspectc["name"]}}</td>
+                        <td>{{suspectc["job"]}}</td>
+                        <td>{{suspectc["relation"]}}</td><!--
+                        <td>{{suspectc["height"]}}</td>
+                        <td>{{suspectc["weight"]}}</td>
+                        <td>{{suspectc["tone"]}}</td>
+                        <td>{{suspectc["eyecolors"]}}</td>
+                        <td>{{suspectc["hairlengths"]}}</td>
+                        <td>{{suspectc["haircolors"]}}</td>
+                        <td>{{suspectc["hairtypes"]}}</td>
+                        <td>{{suspectc["clothings"]}}</td>
+                        <td>{{suspectc["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspect_name_list[1][0]}}</td>
-                        <td>{{suspect_relation_list[1]}}</td>
-                        <td>{{suspect_job_list[1]}}</td>
+                        <td>{{suspectd["name"]}}</td>
+                        <td>{{suspectd["job"]}}</td>
+                        <td>{{suspectd["relation"]}}</td><!--
+                        <td>{{suspectd["height"]}}</td>
+                        <td>{{suspectd["weight"]}}</td>
+                        <td>{{suspectd["tone"]}}</td>
+                        <td>{{suspectd["eyecolors"]}}</td>
+                        <td>{{suspectd["hairlengths"]}}</td>
+                        <td>{{suspectd["haircolors"]}}</td>
+                        <td>{{suspectd["hairtypes"]}}</td>
+                        <td>{{suspectd["clothings"]}}</td>
+                        <td>{{suspectd["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspect_name_list[2][0]}}</td>
-                        <td>{{suspect_relation_list[2]}}</td>
-                        <td>{{suspect_job_list[2]}}</td>
+                        <td>{{suspecte["name"]}}</td>
+                        <td>{{suspecte["job"]}}</td>
+                        <td>{{suspecte["relation"]}}</td><!--
+                        <td>{{suspecte["height"]}}</td>
+                        <td>{{suspecte["weight"]}}</td>
+                        <td>{{suspecte["tone"]}}</td>
+                        <td>{{suspecte["eyecolors"]}}</td>
+                        <td>{{suspecte["hairlengths"]}}</td>
+                        <td>{{suspecte["haircolors"]}}</td>
+                        <td>{{suspecte["hairtypes"]}}</td>
+                        <td>{{suspecte["clothings"]}}</td>
+                        <td>{{suspecte["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspect_name_list[3][0]}}</td>
-                        <td>{{suspect_relation_list[3]}}</td>
-                        <td>{{suspect_job_list[3]}}</td>
+                        <td>{{suspectf["name"]}}</td>
+                        <td>{{suspectf["job"]}}</td>
+                        <td>{{suspectf["relation"]}}</td><!--
+                        <td>{{suspectf["height"]}}</td>
+                        <td>{{suspectf["weight"]}}</td>
+                        <td>{{suspectf["tone"]}}</td>
+                        <td>{{suspectf["eyecolors"]}}</td>
+                        <td>{{suspectf["hairlengths"]}}</td>
+                        <td>{{suspectf["haircolors"]}}</td>
+                        <td>{{suspectf["hairtypes"]}}</td>
+                        <td>{{suspectf["clothings"]}}</td>
+                        <td>{{suspectf["facehairs"]}}</td>!-->
                       </tr>
                       <tr align="left">
-                        <td>{{suspect_name_list[4][0]}}</td>
-                        <td>{{suspect_relation_list[4]}}</td>
-                        <td>{{suspect_job_list[4]}}</td>
+                        <td>{{suspectg["name"]}}</td>
+                        <td>{{suspectg["job"]}}</td>
+                        <td>{{suspectg["relation"]}}</td><!--
+                        <td>{{suspecta["height"]}}</td>
+                        <td>{{suspecta["weight"]}}</td>
+                        <td>{{suspecta["tone"]}}</td>
+                        <td>{{suspecta["eyecolors"]}}</td>
+                        <td>{{suspecta["hairlengths"]}}</td>
+                        <td>{{suspecta["haircolors"]}}</td>
+                        <td>{{suspecta["hairtypes"]}}</td>
+                        <td>{{suspecta["clothings"]}}</td>
+                        <td>{{suspecta["facehairs"]}}</td>!-->
                       </tr>
                     </tbody>
                   </table>
@@ -212,9 +286,7 @@
 
   <div id="footer" class="navbar-fixed-bottom">
     <div class="container">
-      <p class="muted credit" align="center">Murder Generator v. 0.0.3
-        <br>
-        Developed by <a href="mailto:shuanz@gmail.com">Shuanz</a>
+      <p class="muted credit" align="center">Murder Generator v. 0.0.3 - Developed by <a href="mailto:shuanz@gmail.com">Shuanz</a>
       </p>
     </div>
   </div>
