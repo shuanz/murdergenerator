@@ -2,7 +2,7 @@ from faker import Faker
 
 class JobsGenerator:
 
-    def generator(self):
+    def generate(self):
 
         fake = Faker()
 

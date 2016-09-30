@@ -3,7 +3,7 @@ from faker import Faker
 
 class NameGenerator:
 
-    def generator(self):
+    def generate(self):
 
         fake = Faker()
 

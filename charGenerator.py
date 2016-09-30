@@ -4,7 +4,7 @@ from jobsGenerator import JobsGenerator
 
 class CharGenerator:
 
-    def generator(self):
+    def generate(self):
 
         murder_list = importMurderList()
         name = NameGenerator()
@@ -17,8 +17,8 @@ class CharGenerator:
         for key in keys:
             character.get(key)
 
-        character['name'], character['gender'] = name.generator()
-        character['job'] = job.generator()
+        character['name'], character['gender'] = name.generate()
+        character['job'] = job.generate()
         character['relation'] = murder_list.generate("who")
         character['height'] = murder_list.generate("heights")
         character['weight'] = murder_list.generate("weights")

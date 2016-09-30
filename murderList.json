@@ -1,4 +1,4 @@
-{"_comment": "Font: https://www.quandl.com/data/FBI/CRIME11-U-S-Crime-Rate",
+{"_comment": "Source: https://www.quandl.com/data/FBI/CRIME11-U-S-Crime-Rate",
   "how": ["Handguns",
           "Knives or cutting instruments",
           "Blunt objects (clubs, hammers, etc.)",
@@ -12,7 +12,7 @@
           "Strangulation",
           "Asphyxiation"],
 
-"_comment": "Font: http://www.johnlescroart.com/14-motives-for-murder/",
+"_comment": "Source: http://www.johnlescroart.com/14-motives-for-murder/",
   "why": ["To keep a secret",
           "Revenge",
           "Frustration",
@@ -30,9 +30,6 @@
           "Mistake",
           "Mental Problems",
           "Imprudence"],
-
-  "where": ["Internal",
-            "External"],
 
   "when": ["Dawn: Beetween 12:00am  and 05:59am",
           "Morning: Beetween  06:00am and 11:59am",
@@ -56,7 +53,7 @@
           "Aggressor",
           "Psycho"],
 
-  "_comment": "Font: http://klh.karinoyo.com/generate/character/",
+  "_comment": "Source: http://klh.karinoyo.com/generate/character/",
     "heights": ["very tall",
                 "a little taller than average",
                 "of average height",

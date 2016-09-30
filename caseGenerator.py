@@ -1,13 +1,11 @@
-import random
-import json
+from importMuderList import importMurderList
 from addressGenerator import AddressGenerator
 
 class CaseGenerator:
 
-    def generator(self):
+    def generate(self):
 
-        with open('murderList.json') as mlists:
-            murder_list = json.load(mlists)
+        murder_list = importMurderList()
 
         case = {}
         keys = ['how', 'why', 'where', 'address', 'lat', 'lon',
@@ -16,11 +14,9 @@ class CaseGenerator:
         for key in keys:
             case.get(key)
 
-        case['how'] = random.choice(murder_list["how"])
-        case['why'] = random.choice(murder_list["why"])
-        case['where'] = random.choice(murder_list["where"])
-        case['address'], case['lat'], case['lon'] = AddressGenerator().generator()
-        case['when'] = random.choice(murder_list["when"])
-        case['who'] = random.choice(murder_list["who"])
+        case['how'] = murder_list.generate("how")
+        case['why'] = murder_list.generate("why")
+        case['address'], case['lat'], case['lon'] = AddressGenerator().generate()
+        case['when'] = murder_list.generate("when")
 
         return case
