@@ -3,13 +3,11 @@ from flask import render_template
 import random
 import json
 from generateAddress import GenerateAddres
-from jobs import GenerateJobs
-from nameGen import NameGen
 from charGenerator import CharGenerator
-from flask_googlemaps import GoogleMaps
+#from flask_googlemaps import GoogleMaps
 
 app = Flask(__name__)
-GoogleMaps(app)
+#GoogleMaps(app)
 
 @app.route('/')
 def murdergen(name=None):
@@ -17,11 +15,21 @@ def murdergen(name=None):
     with open('murderList.json') as mlists:
         murder_list = json.load(mlists)
 
-    name_gen = NameGen()
     character_generator = CharGenerator()
-
     victim = character_generator.generator()
     guilty = character_generator.generator()
+    suspecta = character_generator.generator()
+    suspectb = character_generator.generator()
+    how = random.choice(murder_list["how"])
+    why = random.choice(murder_list["why"])
+    where = random.choice(murder_list["where"])
+    address, lat, lon = GenerateAddres().generator()
+    when = random.choice(murder_list["when"])
+    who_relation = random.choice(murder_list["who"])
+    suspect_name_list = []
+    suspect_relation_list = []
+    suspect_job_list = []
+    list_size = random.randint(1,4)
 
     for i in victim:
         victim_name = victim[0]
@@ -50,34 +58,27 @@ def murdergen(name=None):
         guilty_clothings = guilty[10]
         guilty_victim_relationship = guilty[11]
 
-    how = random.choice(murder_list["how"])
-    why = random.choice(murder_list["why"])
-    where = random.choice(murder_list["where"])
-    address, lat, lon = GenerateAddres().generator()
-    when = random.choice(murder_list["when"])
+    for i in suspecta:
+        suspecta_name = suspecta[0]
+        suspecta_job = suspecta[1]
+        suspecta_victim_relationship = suspecta[11]
 
-    who_relation = random.choice(murder_list["who"])
-
-    suspecta_name = name_gen.generator()
-    suspecta_relation = random.choice(murder_list["who"])
-    suspecta_job = GenerateJobs().generator()
-    suspectb_name = name_gen.generator()
-    suspectb_relation = random.choice(murder_list["who"])
-    suspectb_job = GenerateJobs().generator()
-    suspect_name_list = []
-    suspect_relation_list = []
-    suspect_job_list = []
-    list_size = random.randint(1,4)
+    for i in suspecta:
+        suspectb_name = suspectb[0]
+        suspectb_job = suspectb[1]
+        suspectb_victim_relationship = suspectb[11]
 
     for i in range (0, list_size):
-        suspect_name_list.append(name_gen.generator())
-        suspect_relation_list.append(random.choice(murder_list["who"]))
-        suspect_job_list.append(GenerateJobs().generator())
+        suspectx = character_generator.generator()
+        suspect_name_list.append(suspectx[0:])
+        suspect_relation_list.append(suspectx[11])
+        suspect_job_list.append(suspectx[1])
     if i < 4:
         for c in range (i, 4):
             suspect_name_list.append(["",""])
             suspect_relation_list.append("")
             suspect_job_list.append("")
+
     return render_template('index.html', **locals())
 
 if __name__ == "__main__":
