@@ -1,5 +1,5 @@
 Flask==0.11.1
-geopy==1.11.0
+geopy==1.17.0
 gunicorn==19.6.0
 names==0.3.0
 faker==0.7.3
