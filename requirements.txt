@@ -1,6 +1,6 @@
 flask>=1.0.0
 geopy==1.17.0
-gunicorn==19.6.0
+gunicorn==19.10.0
 names==0.3.0
 faker==0.7.3
 Flask-GoogleMaps==0.2.2
